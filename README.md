@@ -43,6 +43,7 @@ Este é um site React com integração ao banco de dados e back-end em Java. Por
 
 1. **Ferramentas Necessárias:**
    - IDE com suporte ao Java (ex: IntelliJ, Eclipse, VSCode, todos com extenções para Java).
+   - Node.js com npm, qualquer versão.
    - MySQL ou PostgreSQL para o banco de dados (pode ser configurado usando XAMPP ou outra ferramenta para servidores SQL).
 
 2. **Configuração do Back-End:**
