@@ -1,3 +1,7 @@
+.conteinerCart{
+    min-height: 40em;
+}
+
 .conteiner_itens_carrinho{
     margin: auto;
     margin-top: 0.75em;
