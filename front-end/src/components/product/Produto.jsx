@@ -1,40 +1,35 @@
 import styles from "./Produto.module.css";
 import carrinho from "../../assets/img/carrinho-de-compras.png";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { addProductInCart } from "../../servises/product/product";
+import { Context } from "../../context";
 
 
 export default function Produto({ imagem, nome, valor, descricao, idProduto, idUsuario }) {
 
   // Variáveis =============================================================================================================
+  const { userInfos } = useContext(Context)
+
   const [containerClass, setContainerClass] = useState(styles.produto_container);
   const navigate = useNavigate();
 
   // Funções =============================================================================================================
 
-  function adicionarItemCarrinho(idProduto) {
-    // Função para adicionar o produto ao carrinho do usuário logado.
-    fetch(`http://localhost:8443/vitabloom/usuario/adicionaritem/${idUsuario}`, {
-      method: "PUT",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        produto: {
-            idProduto: idProduto
-        },
-        quantidade: 1
-      })
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-          console.log(data);
-      })
-      .catch((err) => {
-          console.log("Erro na requisição:", err);
-      });
+  function adicionarItemCarrinho(idProdutoFunc, idUsuarioFunc) {
+    addProductInCart(
+      idUsuarioFunc, 
+      idProdutoFunc
+    )
   }
+
+  const toAddProductInCart = () => {
+    addProductInCart(
+      idUsuario, 
+      idProduto
+    )
+}
 
   // Função para alterar a cor durante um momento para adição do item.
   function alteraCor() {
@@ -49,10 +44,10 @@ export default function Produto({ imagem, nome, valor, descricao, idProduto, idU
   // Handle click para ferificar se o usuário está logado.
   // Caso não esteja é encaminhado para a tela de Login.  
   function handleClick(idProduto) {
-    if(!idUsuario){
+    if(!userInfos){
       navigate("/usuario/login");
     }else{
-      adicionarItemCarrinho(idProduto);
+      adicionarItemCarrinho(idProduto, userInfos.idUsuario);
       alteraCor();
     }
   }

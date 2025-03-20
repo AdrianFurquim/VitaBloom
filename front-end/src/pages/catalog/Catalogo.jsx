@@ -26,7 +26,8 @@ export default function Catalogo({idUsuario}){
 
     const {
         productList, 
-        setProductList
+        setProductList, 
+        userInfos
     } = useContext(Context);
 
     // Funções =============================================================================================================
@@ -87,7 +88,7 @@ export default function Catalogo({idUsuario}){
                     <div key={produto.id}>
                         <div className={styles.outroteste}>
                             <Produto
-                                idUsuario={idUsuario}
+                                idUsuario={userInfos}
                                 nome={produto.nomeProduto}
                                 valor={produto.valorProduto}
                                 descricao={produto.descricaoProduto}
