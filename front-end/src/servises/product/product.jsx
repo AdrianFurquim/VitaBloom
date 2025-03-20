@@ -18,8 +18,25 @@ async function getProductsByOffer(
     setProductListOffer
 ) {
     try {
-        const response = await Api.get(`http://localhost:8443/vitabloom/produto/${idProduto}`);
+        const response = await Api.get(`vitabloom/produto/${idProduto}`);
         setProductListOffer(response.data);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+async function addProductInCart(
+    idUsuario, 
+    idProduto
+) {
+    try {
+        const bodyData = {
+            produto: {
+                idProduto: idProduto
+            },
+            quantidade: 1
+        }
+        const response = await Api.put(`vitabloom/usuario/adicionaritem/${idUsuario}`, bodyData);
     } catch (err) {
         console.log(err)
     }
@@ -27,5 +44,6 @@ async function getProductsByOffer(
 
 export {
     getProducts, 
-    getProductsByOffer
+    getProductsByOffer, 
+    addProductInCart
 }
