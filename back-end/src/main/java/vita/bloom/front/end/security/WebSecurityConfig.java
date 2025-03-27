@@ -43,6 +43,8 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/vitabloom/usuario/removeitem/{idUsuario}/{idItem}").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/vitabloom/usuario/delete/{id}").permitAll()
 
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
+
                         .requestMatchers(HttpMethod.POST, "/admin/criar").permitAll()
                                       )
             .authorizeHttpRequests(
