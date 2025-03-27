@@ -53,6 +53,8 @@ Este é um site React com integração ao banco de dados e back-end em Java. Por
    - Importe o schema disponível na pasta back-end chamado vita_bloom.sql em seu sistema de gerenciamento de banco de dados.
    - Abra um arquivo no back-end que seja .java.
    - Execute a aplicação Java para iniciar o servidor.
+   - Para abrir a documentação da API acesse a URL: http://http://localhost:8443/swagger-ui/index.html#/ o link é correspondente ao swagger.
+
 
 ### Passo 2: Configuração do Front-End
 
