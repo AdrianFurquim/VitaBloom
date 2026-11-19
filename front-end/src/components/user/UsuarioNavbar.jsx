@@ -15,7 +15,7 @@ export default function UsuarioNavbar() {
             <p>
                 {userInfos && userInfos.nome ? userInfos.nome : "Entrar"}
             </p>
-            <img src={usuarioIcone} alt="imagem de usuário padrão" />
+            <img src={usuarioIcone} style={{ width: "2em", margin: "auto" }} alt="imagem de usuário padrão" />
         </div>
     )
 }
