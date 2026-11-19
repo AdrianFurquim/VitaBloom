@@ -8,7 +8,6 @@ export default function Main() {
         <>
             <Navbar/>
             <Outlet /> 
-            <Footer/>
         </>
     )
 }

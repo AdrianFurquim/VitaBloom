@@ -17,12 +17,12 @@
     margin-bottom: 1.5em;
 }
 
-.produto_oferta h2, h3{
+/* .produto_oferta h2, h3{
     text-align: start;
     margin-left: 2em;
     color: black;
     margin-top: -1em;
-}
+} */
 
 .valores{
     display: flex;
